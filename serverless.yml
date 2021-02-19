@@ -1,0 +1,42 @@
+service: html-to-pdf-api
+
+plugins:
+  - serverless-bundle
+  - serverless-offline
+
+custom:
+  bundle:
+    copyFiles:
+      - from: 'lib/*'
+        to: './'
+  serverless-offline:
+    httpPort: 9969
+    noPrependStageInUrl: true
+    useChildProcesses: true
+    useDocker: true
+    dockerReadOnly: false
+
+package:
+  individually: true
+
+provider:
+  name: aws
+  stage: ${opt:stage, 'local'}
+  region: ${file(./config.${self:provider.stage}.yml):REGION, 'ap-southeast-1'}
+  profile: ${file(./config.${self:provider.stage}.yml):PROFILE, 'default'}
+  runtime: nodejs12.x
+  memorySize: 256
+  timeout: 10
+  environment:
+    TZ: ${file(./config.${self:provider.stage}.yml):TZ, 'Asia/Singapore'}
+    STAGE: ${self:provider.stage}
+    NODE_ENV: ${self:provider.stage}
+
+functions:
+  convert:
+    handler: src/index.handler
+    events:
+      - http:
+          path: /
+          method: post
+          cors: true
