@@ -1,27 +1,44 @@
 {
-  "name": "zeplin-html-to-pdf",
-  "version": "2.0.0",
-  "description": "AWS Lambda function that converts HTML pages to PDF documents",
+  "name": "serverless-html-to-pdf",
+  "version": "3.0.0",
+  "description": "Creates an API that converts HTML pages to PDF documents using Serverless technologies",
   "scripts": {
-    "lint": "./node_modules/.bin/eslint --quiet .",
-    "lint:staged": "./node_modules/.bin/eslint --quiet",
-    "lint:fix": "npm run lint -- --fix",
-    "pack": "rm -f package.zip && zip package.zip -r index.js utils lib fonts",
-    "deploy:dev": "npm run pack && aws lambda update-function-code --region us-west-1 --function-name htmlToPdf --zip-file fileb://`pwd`/package.zip",
-    "deploy:prod": "npm run pack && aws lambda update-function-code --region us-west-2 --function-name htmlToPdf --zip-file fileb://`pwd`/package.zip"
+    "start": "sls offline -s dev",
+    "deploy": "sls deploy -s",
+    "deploy:func": "sls deploy function",
+    "build": "sls package",
+    "lint": "eslint src --ext .js -c node_modules/serverless-bundle/src/eslintrc.json",
+    "pretty": "pretty-quick",
+    "test": "serverless-bundle test --collect-coverage",
+    "watch": "serverless-bundle test --watch",
+    "coverage": "serverless-bundle test --collect-coverage"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/zeplin/zeplin-html-to-pdf.git"
+    "url": "git+https://github.com/kdcio/serverless-html-to-pdf.git"
   },
   "bugs": {
-    "url": "https://github.com/zeplin/zeplin-html-to-pdf/issues"
+    "url": "https://github.com/kdcio/serverless-html-to-pdf/issues"
   },
+  "keywords": [
+    "AWS",
+    "lambda",
+    "api",
+    "gateway",
+    "serverless",
+    "html",
+    "pdf",
+    "kdcio"
+  ],
   "devDependencies": {
-    "@zeplin/eslint-config": "^2.0.0",
-    "eslint": "^4.0.0",
-    "husky": "^4.2.1",
-    "lint-staged": "^10.0.2"
+    "eslint": "^7.20.0",
+    "husky": "^4.3.8",
+    "lint-staged": "^10.5.4",
+    "prettier": "^2.2.1",
+    "pretty-quick": "^3.1.0",
+    "serverless": "^2.25.2",
+    "serverless-bundle": "git+https://github.com/ianpogi5/serverless-bundle.git",
+    "serverless-offline": "^6.8.0"
   },
   "husky": {
     "hooks": {
@@ -30,7 +47,18 @@
   },
   "lint-staged": {
     "*.js": [
-      "npm run --silent lint:staged"
+      "npm run lint",
+      "pretty-quick --staged"
     ]
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.js"
+    ]
+  },
+  "dependencies": {
+    "@kdcio/api-gw-req": "^1.2.0",
+    "@kdcio/api-gw-resp": "^1.3.1",
+    "debug": "^4.3.1"
   }
 }

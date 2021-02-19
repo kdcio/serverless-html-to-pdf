@@ -2,3 +2,7 @@
 .idea/
 node_modules
 jspm_packages
+.webpack
+.serverless
+config.*.yml
+!config.sample.yml
