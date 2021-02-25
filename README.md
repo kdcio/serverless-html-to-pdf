@@ -17,7 +17,7 @@ npm install
 Requires docker to simulate lambda environment.
 
 ```bash
-npm run start
+npm start
 ```
 
 ## Usage
