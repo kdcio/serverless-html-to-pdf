@@ -1,25 +1,45 @@
 # KDCIO HTML to PDF API
 
-This creates an API (AWS API Gateway and lambda) that converts HTML pages to PDF documents using wkhtmltopdf (0.12.4). It implements a simple interface to read and HTML input and output PDF content.
+This creates an API (AWS API Gateway and lambda) that converts HTML pages to PDF documents using wkhtmltopdf (0.12.4). It implements a simple interface to read an HTML input and output PDF content.
 
-## API POST Body
+This project is a fork of [zeplin/zeplin-html-to-pdf](https://github.com/zeplin/zeplin-html-to-pdf).
 
-POST request header should have `"Content-Type": "application/json"`.
-POST body has the following JSON structure:
+## Setup
 
-```json
+```bash
+git clone https://github.com/kdcio/serverless-html-to-pdf.git
+cd serverless-html-to-pdf
+npm install
+```
+
+## Run in local environment
+
+Requires docker to simulate lambda environment.
+
+```bash
+npm run start
+```
+
+## Usage
+
+### API POST
+
+```http
+POST http://localhost:9969
+Content-Type: application/json
+
 {
   "html": "<!DOCTYPE html><html><head><title>HTML doc</title></head><body>Content</body></html>"
 }
 ```
 
-See [tests/api.http](tests/api.http) for an example.
+See [tests/api.http](tests/api.http) to try. You'll need to open this project on [VS Code](https://code.visualstudio.com/https://code.visualstudio.com/) with [REST Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) extension for it to work.
 
-## Output
+### API Output
 
 It yields a response in the following format:
 
-```
+```json
 {
   "data": "JVBERi0xLjQKMSAwIG9iago8PAovVGl0bGUgKP7..."
 }
@@ -27,18 +47,24 @@ It yields a response in the following format:
 
 `data` is base64 encoding of the converted PDF file.
 
-## Test in local environment
-
-The function can be tested locally using [AWS SAM CLI](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-sam-cli-command-reference.html). You can change contents of `events/example-event.json` or you can create a new file which you will give sam as an event parameter.
-
-```
-sam local invoke "HtmlToPdf" -e events/example-event.json
-```
-
 ## Deploying to AWS
 
-There are two ways in which these functions can be deployed to AWS.
+Deploy using your `default` AWS profile in `ap-southeast-1` region and `Asia/Manila` timezone.
 
-1 - Check our `npm run deploy:dev` and `npm run deploy:prod` commands in `package.json` and change it according to your needs. Do not forget to add environment variables (you can find it under `template.yml`) to your lambda function in aws lambda edit page or running [lamba update-function-configuration command](https://docs.aws.amazon.com/cli/latest/reference/lambda/update-function-configuration.html). Be sure to create the following environment variable in Lambda: `FONTCONFIG_PATH=/var/task/fonts`
+```bash
+npm run deploy
+```
 
-2 - Check out `template.yml` file and edit according to your needs then use `sam deploy`.
+Customize the parameters by creating a config for your stage. For example, create the file `config.prod.yml` in the project root with the contents below.
+
+```yml
+REGION: us-east-1
+PROFILE: production
+TZ: America/New_York
+```
+
+To use that config file, run the command below:
+
+```bash
+npm run deploy prod
+```

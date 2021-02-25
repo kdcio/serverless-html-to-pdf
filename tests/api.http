@@ -4,12 +4,3 @@ Content-Type: application/json
 {
   "html": "<!DOCTYPE html><html><head><title>HTML doc</title></head><body>Content</body></html>"
 }
-
-###
-
-POST https://n7d6udtskg.execute-api.ap-southeast-1.amazonaws.com/dev/
-Content-Type: application/json
-
-{
-  "html": "<!DOCTYPE html><html><head><title>HTML doc</title></head><body>Content</body></html>"
-}
