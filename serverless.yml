@@ -28,7 +28,7 @@ provider:
   memorySize: 256
   timeout: 10
   environment:
-    TZ: ${file(./config.${self:provider.stage}.yml):TZ, 'Asia/Singapore'}
+    TZ: ${file(./config.${self:provider.stage}.yml):TZ, 'Asia/Manila'}
     STAGE: ${self:provider.stage}
     NODE_ENV: ${self:provider.stage}
 
