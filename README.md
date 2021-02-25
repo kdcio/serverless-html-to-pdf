@@ -1,6 +1,6 @@
 # KDCIO HTML to PDF API
 
-This creates an API (AWS API Gateway and lambda) that converts HTML pages to PDF documents using wkhtmltopdf (0.12.4). It implements a simple interface to read an HTML input and output PDF content.
+This creates an API (AWS API Gateway and lambda) that converts HTML pages to PDF documents using [wkhtmltopdf](https://wkhtmltopdf.org/) (0.12.4). It implements a simple interface to read an HTML input and output PDF content.
 
 This project is a fork of [zeplin/zeplin-html-to-pdf](https://github.com/zeplin/zeplin-html-to-pdf).
 
