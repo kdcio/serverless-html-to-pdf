@@ -45,7 +45,7 @@ jobs:
         run: npm run lint
 
       - name: Start API
-        run: npm start
+        run: npm start &
 
       - name: Test
         run: npm test
