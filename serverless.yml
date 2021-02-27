@@ -10,7 +10,6 @@ custom:
       - from: 'lib/*'
         to: './'
   serverless-offline:
-    httpPort: 9969
     noPrependStageInUrl: true
     useChildProcesses: true
     useDocker: true

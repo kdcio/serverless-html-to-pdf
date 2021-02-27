@@ -25,7 +25,7 @@ npm start
 ### API POST
 
 ```http
-POST http://localhost:9969
+POST http://localhost:3000
 Content-Type: application/json
 
 {
