@@ -1,8 +1,10 @@
-# KDCIO HTML to PDF API
+# Serverless HTML to PDF API
 
 This creates an API (AWS API Gateway and lambda) that converts HTML pages to PDF documents using [wkhtmltopdf](https://wkhtmltopdf.org/) (0.12.4). It implements a simple interface to read an HTML input and output PDF content.
 
 This project is a fork of [zeplin/zeplin-html-to-pdf](https://github.com/zeplin/zeplin-html-to-pdf).
+
+[![GitHub Workflow Status](https://img.shields.io/github/workflow/status/kdcio/serverless-html-to-pdf/Build%20and%20Test)](https://github.com/kdcio/serverless-html-to-pdf/actions/workflows/push.yml)
 
 ## Setup
 
@@ -78,3 +80,15 @@ To use that config file, run the command below:
 ```bash
 npm run deploy prod
 ```
+
+## Star Me
+
+If you find this project useful, please consider giving a star. I would really appreciate it.
+
+You can also:
+
+[![Buy Me A Coffee](https://cdn.buymeacoffee.com/buttons/default-yellow.png)](https://www.buymeacoffee.com/o4f0WYV)
+
+## License
+
+[MIT](LICENSE)
