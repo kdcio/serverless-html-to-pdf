@@ -9,8 +9,9 @@ custom:
     copyFiles:
       - from: 'lib/*'
         to: './'
+      - from: 'fonts/*'
+        to: './'
   serverless-offline:
-    httpPort: 9969
     noPrependStageInUrl: true
     useChildProcesses: true
     useDocker: true
@@ -31,6 +32,7 @@ provider:
     TZ: ${file(./config.${self:provider.stage}.yml):TZ, 'Asia/Manila'}
     STAGE: ${self:provider.stage}
     NODE_ENV: ${self:provider.stage}
+    FONTCONFIG_PATH: /var/task/fonts
 
 functions:
   convert:

@@ -25,7 +25,7 @@ npm start
 ### API POST
 
 ```http
-POST http://localhost:9969
+POST http://localhost:3000
 Content-Type: application/json
 
 {
@@ -46,6 +46,16 @@ It yields a response in the following format:
 ```
 
 `data` is base64 encoding of the converted PDF file.
+
+### Example
+
+Run example API client code in [example/client.js](example/client.js):
+
+```bash
+npm run client
+```
+
+This will generate `base64.pdf` file.
 
 ## Deploying to AWS
 
