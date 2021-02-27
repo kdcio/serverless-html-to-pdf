@@ -9,7 +9,7 @@
     "build": "sls package",
     "lint": "eslint src --ext .js -c node_modules/serverless-bundle/src/eslintrc.json",
     "pretty": "pretty-quick",
-    "test": "serverless-bundle test",
+    "test": "until nc -z localhost 3000; do sleep 1; done && serverless-bundle test",
     "watch": "serverless-bundle test --watch",
     "client": "node example/client.js"
   },
