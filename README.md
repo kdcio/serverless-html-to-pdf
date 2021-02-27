@@ -47,6 +47,16 @@ It yields a response in the following format:
 
 `data` is base64 encoding of the converted PDF file.
 
+### Example
+
+Run example API client code in [example/client.js](example/client.js):
+
+```bash
+npm run client
+```
+
+This will generate `base64.pdf` file.
+
 ## Deploying to AWS
 
 Deploy using your `default` AWS profile in `ap-southeast-1` region and `Asia/Manila` timezone.

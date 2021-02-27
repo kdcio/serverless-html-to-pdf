@@ -11,7 +11,7 @@
     "pretty": "pretty-quick",
     "test": "serverless-bundle test",
     "watch": "serverless-bundle test --watch",
-    "coverage": "serverless-bundle test --collect-coverage"
+    "client": "node example/client.js"
   },
   "repository": {
     "type": "git",
