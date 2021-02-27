@@ -3,6 +3,7 @@ import input from '../fixtures/input.json';
 
 describe('HTML to PDF', () => {
   it('should convert html to PDF', async () => {
+    jest.setTimeout(10000);
     expect.assertions(1);
     const res = await fetch('http://localhost:3000', {
       method: 'POST',
