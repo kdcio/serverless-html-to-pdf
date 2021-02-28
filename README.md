@@ -4,7 +4,7 @@ This creates an API (AWS API Gateway and lambda) that converts HTML pages to PDF
 
 This project is a fork of [zeplin/zeplin-html-to-pdf](https://github.com/zeplin/zeplin-html-to-pdf).
 
-[![GitHub Workflow Status](https://img.shields.io/github/workflow/status/kdcio/serverless-html-to-pdf/Build%20and%20Test)](https://github.com/kdcio/serverless-html-to-pdf/actions/workflows/push.yml)
+![GitHub release (latest by date)](https://img.shields.io/github/v/release/kdcio/serverless-html-to-pdf) [![GitHub Workflow Status](https://img.shields.io/github/workflow/status/kdcio/serverless-html-to-pdf/Build%20and%20Test)](https://github.com/kdcio/serverless-html-to-pdf/actions/workflows/push.yml)
 
 ## Setup
 
