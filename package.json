@@ -59,7 +59,7 @@
   },
   "dependencies": {
     "@kdcio/api-gw-req": "^1.2.0",
-    "@kdcio/api-gw-resp": "^1.3.1",
+    "@kdcio/api-gw-resp": "^1.7.1",
     "debug": "^4.3.2"
   }
 }
